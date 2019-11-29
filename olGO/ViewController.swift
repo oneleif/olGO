@@ -55,113 +55,21 @@ class ViewController: UIViewController {
     
     
     var registerView: View {
-        VStack(distribution: .equalCentering) {
-            [
-                Spacer(),
-                VStack {
-                    [
-                        Field(value: "", placeholder: "Username", keyboardType: .default)
-                            .inputHandler { (value) in
-                                self.username = value
-                        }
-                        .frame(height: 60),
-                        Field(value: "", placeholder: "Password", keyboardType: .default)
-                            .configure {
-                                $0.isSecureTextEntry = true
-                        }
-                        .inputHandler { (value) in
-                            self.password = value
-                        }
-                        .frame(height: 60)
-                    ]
-                },
-                Button("Register", titleColor: .blue) {
-                    self.bag.append(API.instance.register(user: User(username: self.username,
-                                                                     password: self.password))
-                        .sink(receiveCompletion: { (result) in
-                            switch result {
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            case .finished:
-                                DispatchQueue.main.async {
-                                    Navigate.shared.go(from: self,
-                                                       to: UIViewController {
-                                                        View(backgroundColor: .white) {
-                                                            self.loginView
-                                                        }
-                                    }, style: .push)
-                                }
-                            }
-                        }) { (data, response) in
-                            print("Attempt Log in")
-                    })
-                }
-                .frame(height: 60),
-                Spacer()
-            ]
-        }.padding()
+        View {
+            RegisterView()
+        }
     }
     
-    var loginView: View {
-        VStack(distribution: .equalCentering) {
-            [
-                Spacer(),
-                VStack {
-                    [
-                        Field(value: "", placeholder: "Username", keyboardType: .default)
-                            .inputHandler { (value) in
-                                self.username = value
-                        }
-                        .frame(height: 60),
-                        Field(value: "", placeholder: "Password", keyboardType: .default)
-                            .configure {
-                                $0.isSecureTextEntry = true
-                        }
-                        .inputHandler { (value) in
-                            self.password = value
-                        }
-                        .frame(height: 60)
-                    ]
-                },
-                Button("Login", titleColor: .blue) {
-                    self.bag.append(API.instance.login(user: User(username: self.username,
-                                                                  password: self.password))
-                        .sink(receiveCompletion: { (result) in
-                            switch result {
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            case .finished:
-                                DispatchQueue.main.async {
-                                    Navigate.shared.go(from: self,
-                                                       to: UIViewController {
-                                                        View(backgroundColor: .white) {
-                                                            Label("You are logged in")
-                                                        }
-                                    }, style: .push)
-                                }
-                            }
-                        }) { (data, response) in
-                            print("Attempt Log in")
-                    })
-                }
-                .frame(height: 60),
-                Spacer()
-            ]
-        }.padding()
+    var loginView: View  {
+        View {
+            LoginView()
+        }
     }
     
     var logoutView: View {
-        Button("Logout", titleColor: .blue) {
-            self.bag.append(API.instance.logout()
-                .sink(receiveCompletion: { (result) in
-                    print(result)
-                }) { (data, response) in
-                    print("Logout")
-            })
-            
+        View {
+            LogoutView()
         }
-        .frame(height: 60)
-        .padding()
     }
     
     var allPostButton: Button {
