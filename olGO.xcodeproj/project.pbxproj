@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		29C61157237E3BAB00F673EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */; };
 		29C61162237E3BAB00F673EE /* olGOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61161237E3BAB00F673EE /* olGOTests.swift */; };
 		29C6116D237E3BAB00F673EE /* olGOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6116C237E3BAB00F673EE /* olGOUITests.swift */; };
+		29C6117B237E3CB900F673EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6117A237E3CB900F673EE /* API.swift */; };
+		29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29C6117D237E3CE400F673EE /* SwiftUIKit */; };
+		29C61188237E3E4700F673EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61186237E3E4700F673EE /* User.swift */; };
+		29C61189237E3E4700F673EE /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61187237E3E4700F673EE /* PostItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		29C61168237E3BAB00F673EE /* olGOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = olGOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6116C237E3BAB00F673EE /* olGOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olGOUITests.swift; sourceTree = "<group>"; };
 		29C6116E237E3BAB00F673EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29C6117A237E3CB900F673EE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		29C61186237E3E4700F673EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		29C61187237E3E4700F673EE /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +109,13 @@
 			children = (
 				29C6114A237E3BA900F673EE /* AppDelegate.swift */,
 				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
+				29C6118A237E3E4B00F673EE /* Models */,
 				29C6114E237E3BA900F673EE /* ViewController.swift */,
 				29C61150237E3BA900F673EE /* Main.storyboard */,
 				29C61153237E3BAB00F673EE /* Assets.xcassets */,
 				29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */,
 				29C61158237E3BAB00F673EE /* Info.plist */,
+				29C6117A237E3CB900F673EE /* API.swift */,
 			);
 			path = olGO;
 			sourceTree = "<group>";
@@ -128,6 +138,15 @@
 			path = olGOUITests;
 			sourceTree = "<group>";
 		};
+		29C6118A237E3E4B00F673EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29C61187237E3E4700F673EE /* PostItem.swift */,
+				29C61186237E3E4700F673EE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +163,9 @@
 			dependencies = (
 			);
 			name = olGO;
+			packageProductDependencies = (
+				29C6117D237E3CE400F673EE /* SwiftUIKit */,
+			);
 			productName = olGO;
 			productReference = 29C61147237E3BA900F673EE /* olGO.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +238,9 @@
 				Base,
 			);
 			mainGroup = 29C6113E237E3BA900F673EE;
+			packageReferences = (
+				29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+			);
 			productRefGroup = 29C61148237E3BA900F673EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C61189237E3E4700F673EE /* PostItem.swift in Sources */,
 				29C6114F237E3BA900F673EE /* ViewController.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
+				29C6117B237E3CB900F673EE /* API.swift in Sources */,
+				29C61188237E3E4700F673EE /* User.swift in Sources */,
 				29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +618,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29C6117D237E3CE400F673EE /* SwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			productName = SwiftUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29C6113F237E3BA900F673EE /* Project object */;
 }
