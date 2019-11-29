@@ -13,13 +13,20 @@ import Combine
 class LogoutView: UIView {
     private var bag: [AnyCancellable] = []
     
+    private var isRequesting: Bool = false
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
         embed {
             Button("Logout", titleColor: .blue) {
+                guard !self.isRequesting else {
+                    return
+                }
+                self.isRequesting = true
                 self.bag.append(API.instance.logout()
                     .sink(receiveCompletion: { (result) in
+                        self.isRequesting = false
                         print(result)
                     }) { (data, response) in
                         print("Logout")

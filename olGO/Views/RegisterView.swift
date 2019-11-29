@@ -14,6 +14,8 @@ class RegisterView: UIView {
     private var username: String = ""
     private var password: String = ""
     private var bag: [AnyCancellable] = []
+
+    private var isRequesting: Bool = false
     
     init() {
         super.init(frame: .zero)
@@ -40,9 +42,14 @@ class RegisterView: UIView {
                         ]
                     },
                     Button("Register", titleColor: .blue) {
+                        guard !self.isRequesting else {
+                            return
+                        }
+                        self.isRequesting = true
                         self.bag.append(API.instance.register(user: User(username: self.username,
                                                                          password: self.password))
                             .sink(receiveCompletion: { (result) in
+                                self.isRequesting = false
                                 switch result {
                                 case .failure(let error):
                                     print(error.localizedDescription)
@@ -54,7 +61,7 @@ class RegisterView: UIView {
                                     }
                                 }
                             }) { (data, response) in
-                                print("Attempt Log in")
+                                print("Did Register!")
                         })
                     }
                     .frame(height: 60),

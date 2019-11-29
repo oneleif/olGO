@@ -15,6 +15,8 @@ class LoginView: UIView {
     private var password: String = ""
     private var bag: [AnyCancellable] = []
     
+    private var isRequesting: Bool = false
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
@@ -40,9 +42,14 @@ class LoginView: UIView {
                         ]
                     },
                     Button("Login", titleColor: .blue) {
+                        guard !self.isRequesting else {
+                            return
+                        }
+                        self.isRequesting = true
                         self.bag.append(API.instance.login(user: User(username: self.username,
                                                                       password: self.password))
                             .sink(receiveCompletion: { (result) in
+                                self.isRequesting = false
                                 switch result {
                                 case .failure(let error):
                                     print(error.localizedDescription)
