@@ -16,12 +16,11 @@ class AddPostView: UIView {
     private var isRequesting: Bool = false
     private var post: PostItem?
     
-    private var postTitle: String?
-    private var postDescription: String?
-    private var postAuthor: Int? // Get from the user object
-    private var postTags: [String]?
-    private var postUrl: String?
-    private var postContent: String?
+    private var postTitle: String = ""
+    private var postDescription: String = ""
+    private var postTags: [String] = []
+    private var postUrl: String = ""
+    private var postContent: String = ""
     
     init() {
         super.init(frame: .zero)
@@ -32,14 +31,39 @@ class AddPostView: UIView {
                     
                     Label.title1("Add A Post")
                         .frame(height: 80),
-                    VStack(distribution: .fillEqually) {
+                    VStack(withSpacing: 16) {
                         [
-                            Field(value: "", placeholder: "Title (ex: How to create a Post)", keyboardType: .default),
-                            Field(value: "", placeholder: "Description", keyboardType: .default),
-                            Field(value: "", placeholder: "Tags (CSV ex: api, web, backend)", keyboardType: .default),
-                            Field(value: "", placeholder: "URL", keyboardType: .default),
-                            Field(value: "", placeholder: "Content", keyboardType: .default)
+                            VStack(withSpacing: 16, distribution: .fillEqually) {
+                                [
+                                    Field(value: "", placeholder: "Title (ex: How to create a Post)", keyboardType: .default)
+                                        .inputHandler {  self.postTitle = $0 },
+                                    Field(value: "", placeholder: "Description", keyboardType: .default)
+                                        .inputHandler { self.postDescription = $0 },
+                                    Field(value: "", placeholder: "Tags (CSV ex: api, web, backend)", keyboardType: .default)
+                                        .inputHandler { self.postTags = $0.replacingOccurrences(of: " ", with: "").split(separator: ",").map { String($0) } },
+                                    Field(value: "", placeholder: "URL", keyboardType: .default)
+                                        .inputHandler { self.postUrl = $0 },
+                                    ]
+                                    .map {
+                                        $0
+                                            .padding()
+                                            .layer {
+                                                $0.borderWidth = 1
+                                                $0.borderColor = UIColor.darkGray.cgColor
+                                                $0.cornerRadius = 8
+                                        }
+                                        
+                                }
+                            },
+                            Label("Post Content"),
+                            MultiLineField(value: "", keyboardType: .default).frame(height: 200).padding()
+                                .layer {
+                                    $0.borderWidth = 1
+                                    $0.borderColor = UIColor.darkGray.cgColor
+                                    $0.cornerRadius = 8
+                            }
                         ]
+                        
                     },
                     Button("Add Post", titleColor: .blue) {
                         self.addPost()
@@ -56,26 +80,22 @@ class AddPostView: UIView {
     
     private func addPost() {
         guard !self.isRequesting else {
-                return
+            return
         }
         self.isRequesting = true
         
         
-        guard let title = postTitle,
-                let description = postDescription,
-            let author = postAuthor,
-            let tags = postTags,
-            let url = postUrl,
-            let content = postContent else {
-                return
+        guard let author = API.instance.userInfo?.id else {
+            self.isRequesting = false
+            return
         }
         
-        let post = PostItem(title: title,
-                            description: description,
+        let post = PostItem(title: postTitle,
+                            description: postDescription,
                             author: author,
-                            tags: tags,
-                            url: url,
-                            content: content)
+                            tags: postTags,
+                            url: postUrl,
+                            content: postContent)
         
         self.bag.append(API.instance.add(post: post).sink(receiveCompletion: { (result) in
             
