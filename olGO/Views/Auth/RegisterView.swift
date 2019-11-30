@@ -68,11 +68,7 @@ class RegisterView: UIView {
                 if case .failure(let error) = result {
                     print(error.localizedDescription)
                 }
-            }) { (data, response) in
-                guard let response = response as? HTTPURLResponse else {
-                    return
-                }
-                
+            }, receiveValue: { (response) in
                 print("Register Response Status Code: \(response.statusCode)")
                 
                 if 200 ... 300 ~= response.statusCode {
@@ -82,8 +78,10 @@ class RegisterView: UIView {
                         }, style: .push)
                     }
                 }
-                
-        })
+            })
+        )
     }
+    
 }
+
 

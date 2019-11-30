@@ -83,7 +83,7 @@ class LoginView: UIView {
                                             View(backgroundColor: .white) {
                                                 Label("You are logged in")
                                             }
-                        }, style: .push)
+                        }, style: .modal)
                     }
                 }
         })

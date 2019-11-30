@@ -28,22 +28,28 @@ class ViewController: UIViewController {
                     [
                         Label("Auth Calls"),
                         NavButton("Register",
-                                  destination: UIViewController { View(backgroundColor: .white) { self.registerView } },
+                                  destination: UIViewController { View(backgroundColor: .white) { RegisterView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         NavButton("Login",
-                                  destination: UIViewController { View(backgroundColor: .white) { self.loginView } },
+                                  destination: UIViewController { View(backgroundColor: .white) { LoginView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
                         NavButton("Logout",
-                                  destination: UIViewController { View(backgroundColor: .white) { self.logoutView } },
+                                  destination: UIViewController { View(backgroundColor: .white) { LogoutView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
                         Label("Post Calls"),
                         
-                        allPostButton
+                        allPostButton,
+                        
+                        addPostButton,
+                        
+                        Label("Social Calls"),
+                        
+                        socialButton
                         
                     ]
                 }
@@ -53,54 +59,54 @@ class ViewController: UIViewController {
         
     }
     
-    
-    var registerView: View {
-        View {
-            RegisterView()
-        }
-    }
-    
-    var loginView: View  {
-        View {
-            LoginView()
-        }
-    }
-    
-    var logoutView: View {
-        View {
-            LogoutView()
-        }
-    }
-    
-    var allPostButton: Button {
+    var allPostButton: UIView {
         Button("Load All Posts", titleColor: .blue, forEvent: .touchUpInside) {
             self.bag.append(API.instance.allPosts().sink(receiveCompletion: { (completion) in
                 print(completion)
-            }) { (data, response) in
-                guard let posts = try? JSONDecoder().decode([PostItem].self, from: data) else {
-                    print(response)
-                    return
-                }
+            }) { posts in
                 DispatchQueue.main.async {
-                     Navigate.shared.go(UIViewController { View {
-                         Table {
-                             posts.map { post in
-                                 View {
-                                     VStack {
-                                         [
-                                             Label(post.title),
-                                             Label(post.content)
-                                         ]
-                                     }
-                                 }
-                             }
-                         }
-                         }
-                         
-                     }, style: .push)
+                    Navigate.shared.go(UIViewController {
+                        View {
+                            SafeAreaView {
+                                AllPostView(posts: posts)
+                            }
+                        }
+                    }, style: .push)
                 }
-                
             })
+            
+        }
+    }
+    
+    var addPostButton: UIView {
+        Button("Add Post", titleColor: .blue, forEvent: .touchUpInside) {
+            
+            Navigate.shared.go(UIViewController {
+                View {
+                    SafeAreaView {
+                        AddPostView()
+                    }
+                }
+            }, style: .push)
+        }
+    }
+    
+    var socialButton: UIView {
+        Button("SocialInformation", titleColor: .blue, forEvent: .touchUpInside) {
+            self.bag.append(API.instance.social().sink(receiveCompletion: { (completion) in
+                print(completion)
+            }) { social in
+                DispatchQueue.main.async {
+                    Navigate.shared.go(UIViewController {
+                        View {
+                            SafeAreaView {
+                                SocialView(social: social)
+                            }
+                        }
+                    }, style: .push)
+                }
+            })
+            
         }
     }
 }
