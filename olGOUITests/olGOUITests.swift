@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+// Skipping UI Tests until designs are more complete
 class olGOUITests: XCTestCase {
 
     override func setUp() {
@@ -22,8 +22,8 @@ class olGOUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
+   
+    func stestExample() {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -32,7 +32,7 @@ class olGOUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() {
+    func stestLaunchPerformance() {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {

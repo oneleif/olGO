@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  LoginView.swift
 //  olGO
 //
 //  Created by Zach Eriksen on 11/29/19.
@@ -10,11 +10,11 @@ import UIKit
 import SwiftUIKit
 import Combine
 
-class RegisterView: UIView {
+class LoginView: UIView {
     private var username: String = ""
     private var password: String = ""
     private var bag: [AnyCancellable] = []
-
+    
     private var isRequesting: Bool = false
     
     init() {
@@ -41,39 +41,51 @@ class RegisterView: UIView {
                             .frame(height: 60)
                         ]
                     },
-                    Button("Register", titleColor: .blue) {
-                        guard !self.isRequesting else {
-                            return
-                        }
-                        self.isRequesting = true
-                        self.bag.append(API.instance.register(user: User(username: self.username,
-                                                                         password: self.password))
-                            .sink(receiveCompletion: { (result) in
-                                self.isRequesting = false
-                                switch result {
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                case .finished:
-                                    DispatchQueue.main.async {
-                                        Navigate.shared.go(UIViewController {
-                                                             LoginView()
-                                        }, style: .push)
-                                    }
-                                }
-                            }) { (data, response) in
-                                print("Did Register!")
-                        })
+                    Button("Login", titleColor: .blue) {
+                        self.login()
                     }
                     .frame(height: 60),
                     Spacer()
                 ]
-            }
-            .padding()
+            }.padding()
         }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func login() {
+        guard !self.isRequesting else {
+            return
+        }
+        self.isRequesting = true
+        self.bag.append(API.instance.login(user: User(username: self.username,
+                                                      password: self.password))
+            .sink(receiveCompletion: { (result) in
+                
+                self.isRequesting = false
+                if case .failure(let error) = result {
+                    print(error.localizedDescription)
+                }
+                
+            }) { (data, response) in
+                
+                guard let response = response as? HTTPURLResponse else {
+                    return
+                }
+                
+                print("Login Response Status Code: \(response.statusCode)")
+                
+                if 200 ... 300 ~= response.statusCode {
+                    DispatchQueue.main.async {
+                        Navigate.shared.go(UIViewController {
+                                            View(backgroundColor: .white) {
+                                                Label("You are logged in")
+                                            }
+                        }, style: .modal)
+                    }
+                }
+        })
+    }
 }
-
