@@ -14,6 +14,7 @@
 		290242962392D6AA0095653D /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242952392D6AA0095653D /* AddPostView.swift */; };
 		290242992392E36C0095653D /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242982392E36C0095653D /* SocialView.swift */; };
 		2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429A2392E3760095653D /* UpdateSocialView.swift */; };
+		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		290242952392D6AA0095653D /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		290242982392E36C0095653D /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		2902429A2392E3760095653D /* UpdateSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSocialView.swift; sourceTree = "<group>"; };
+		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				290242922392D4440095653D /* AllPostView.swift */,
 				290242952392D6AA0095653D /* AddPostView.swift */,
+				2902429D239482980095653D /* PostItemView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				290242932392D4440095653D /* AllPostView.swift in Sources */,
 				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
+				2902429E239482980095653D /* PostItemView.swift in Sources */,
 				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
 				29C6114F237E3BA900F673EE /* ViewController.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
@@ -684,7 +688,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
 			requirement = {
-				branch = master;
+				branch = develop;
 				kind = branch;
 			};
 		};

@@ -5,8 +5,8 @@
         "package": "SwiftUIKit",
         "repositoryURL": "https://github.com/zmeriksen/SwiftUIKit.git",
         "state": {
-          "branch": "master",
-          "revision": "a151981cf4d810e3c2b5e6c411fa6803775d0383",
+          "branch": "develop",
+          "revision": "0c5af22167e8acc012085d06dc5cb78912f1a3e3",
           "version": null
         }
       }
