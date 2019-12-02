@@ -21,7 +21,7 @@ class AllPostView: UIView {
                     PostItemView(post: $0)
                 }
             }
-        .navigateSet(title: "All Posts")
+            .navigateSet(title: "All Posts")
             
         }
     }

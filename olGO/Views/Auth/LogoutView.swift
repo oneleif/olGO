@@ -11,7 +11,7 @@ import SwiftUIKit
 import Combine
 
 class LogoutView: UIView {
-    private var bag: [AnyCancellable] = []
+    private var bag = CancelBag()
     
     private var isRequesting: Bool = false
     
@@ -35,7 +35,7 @@ class LogoutView: UIView {
             return
         }
         self.isRequesting = true
-        self.bag.append(API.instance.logout()
+        API.instance.logout()
             .sink(receiveCompletion: { (result) in
                 DispatchQueue.main.async {
 
@@ -58,7 +58,8 @@ class LogoutView: UIView {
                 }
                 
                 print("Logout Response Status Code: \(response.statusCode)")
-                
-        })
+            
+        }
+        .canceled(by: &self.bag)
     }
 }

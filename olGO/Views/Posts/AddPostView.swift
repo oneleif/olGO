@@ -11,7 +11,7 @@ import SwiftUIKit
 import Combine
 
 class AddPostView: UIView {
-    private var bag: [AnyCancellable] = []
+    private var bag = CancelBag()
     
     private var isRequesting: Bool = false
     private var post: PostItem?
@@ -98,7 +98,8 @@ class AddPostView: UIView {
                             url: postUrl,
                             content: postContent)
         
-        self.bag.append(API.instance.add(post: post).sink(receiveCompletion: { (result) in
+        API.instance.add(post: post)
+            .sink(receiveCompletion: { (result) in
             
             self.isRequesting = false
             if case .failure(let error) = result {
@@ -122,7 +123,8 @@ class AddPostView: UIView {
                     }, style: .modal)
                 }
             }
-        })
+        }
+        .canceled(by: &self.bag)
         
     }
 }

@@ -15,6 +15,7 @@
 		290242992392E36C0095653D /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242982392E36C0095653D /* SocialView.swift */; };
 		2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429A2392E3760095653D /* UpdateSocialView.swift */; };
 		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
+		290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
@@ -55,6 +56,7 @@
 		290242982392E36C0095653D /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
 		2902429A2392E3760095653D /* UpdateSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSocialView.swift; sourceTree = "<group>"; };
 		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
+		290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+olGO.swift"; sourceTree = "<group>"; };
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,39 @@
 			path = Social;
 			sourceTree = "<group>";
 		};
+		2902429F2394E28E0095653D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				29C6117A237E3CB900F673EE /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		290242A02394E2A00095653D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		290242A42394E2E10095653D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				29C6114A237E3BA900F673EE /* AppDelegate.swift */,
+				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		290242A52394E2EF0095653D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				29C6114E237E3BA900F673EE /* BaseController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		29C6113E237E3BA900F673EE = {
 			isa = PBXGroup;
 			children = (
@@ -162,16 +197,16 @@
 		29C61149237E3BA900F673EE /* olGO */ = {
 			isa = PBXGroup;
 			children = (
-				29C6114A237E3BA900F673EE /* AppDelegate.swift */,
-				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
+				290242A42394E2E10095653D /* Delegates */,
+				290242A02394E2A00095653D /* Extensions */,
+				2902429F2394E28E0095653D /* API */,
 				2902428A2391C9D80095653D /* Views */,
 				29C6118A237E3E4B00F673EE /* Models */,
-				29C6114E237E3BA900F673EE /* BaseController.swift */,
-				29C61150237E3BA900F673EE /* Main.storyboard */,
+				290242A52394E2EF0095653D /* ViewControllers */,
 				29C61153237E3BAB00F673EE /* Assets.xcassets */,
+				29C61150237E3BA900F673EE /* Main.storyboard */,
 				29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */,
 				29C61158237E3BAB00F673EE /* Info.plist */,
-				29C6117A237E3CB900F673EE /* API.swift */,
 			);
 			path = olGO;
 			sourceTree = "<group>";
@@ -348,6 +383,7 @@
 				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
 				2902429E239482980095653D /* PostItemView.swift in Sources */,
+				290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */,
 				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
 				29C6114F237E3BA900F673EE /* BaseController.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,

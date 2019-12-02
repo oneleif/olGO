@@ -11,9 +11,10 @@ import SwiftUIKit
 import Combine
 
 class LoginView: UIView {
+    private var bag = CancelBag()
+    
     private var username: String = ""
     private var password: String = ""
-    private var bag: [AnyCancellable] = []
     
     private var isRequesting: Bool = false
     
@@ -60,7 +61,7 @@ class LoginView: UIView {
             return
         }
         self.isRequesting = true
-        self.bag.append(API.instance.login(user: User(username: self.username,
+        API.instance.login(user: User(username: self.username,
                                                       password: self.password))
             .sink(receiveCompletion: { (result) in
                 
@@ -86,6 +87,7 @@ class LoginView: UIView {
                         }, style: .modal)
                     }
                 }
-        })
+        }
+        .canceled(by: &self.bag)
     }
 }

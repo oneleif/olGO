@@ -13,7 +13,7 @@ import Combine
 class BaseController: UIViewController {
     private var username: String = ""
     private var password: String = ""
-    private var bag: [AnyCancellable] = []
+    private var bag = CancelBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class BaseController: UIViewController {
     
     var allPostButton: UIView {
         Button("Load All Posts", titleColor: .blue, forEvent: .touchUpInside) {
-            self.bag.append(API.instance.allPosts().sink(receiveCompletion: { (completion) in
+            API.instance.allPosts().sink(receiveCompletion: { (completion) in
                 print(completion)
             }) { posts in
                 DispatchQueue.main.async {
@@ -73,7 +73,8 @@ class BaseController: UIViewController {
                         }
                     }, style: .push)
                 }
-            })
+            }
+            .canceled(by: &self.bag)
             
         }
     }
@@ -93,7 +94,7 @@ class BaseController: UIViewController {
     
     var socialButton: UIView {
         Button("SocialInformation", titleColor: .blue, forEvent: .touchUpInside) {
-            self.bag.append(API.instance.social().sink(receiveCompletion: { (completion) in
+            API.instance.social().sink(receiveCompletion: { (completion) in
                 print(completion)
             }) { social in
                 DispatchQueue.main.async {
@@ -105,7 +106,8 @@ class BaseController: UIViewController {
                         }
                     }, style: .push)
                 }
-            })
+            }
+            .canceled(by: &self.bag)
             
         }
     }
