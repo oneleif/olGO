@@ -79,8 +79,8 @@ class API {
         API()
     }()
     // Configuations
-    let path = "http://localhost:8080"
-    //    let path: String = "https://olapi-develop.vapor.cloud"
+    let path = "http://localhost:8080/api"
+    //    let path: String = "https://olapi-develop.vapor.cloud/api"
     
     // Lazy Variables
     lazy var url: URL = URL(string: path)!
