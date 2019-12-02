@@ -25,6 +25,7 @@ class AddPostView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .white
+        
         embed {
             VStack {
                 [
@@ -64,13 +65,13 @@ class AddPostView: UIView {
                             }
                         ]
                         
-                    },
-                    Button("Add Post", titleColor: .blue) {
-                        self.addPost()
                     }
-                    .frame(height: 60)
                 ]
             }
+        .navigateSet(title: "Add Post")
+        .navigateSetRight(barButton: UIBarButtonItem(customView: Button("Add Post", titleColor: .blue) {
+            self.addPost()
+        }))
         }
     }
     

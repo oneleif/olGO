@@ -20,10 +20,7 @@ class AllPostView: UIView {
                 posts.map { post in
                     View {
                         VStack {
-                            [
-                                Label(post.title),
-                                Label(post.content)
-                            ]
+                            posts.map { PostItemView(post: $0) }
                         }
                     }
                 }
