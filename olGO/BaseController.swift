@@ -65,7 +65,7 @@ class BaseController: UIViewController {
                 print(completion)
             }) { posts in
                 DispatchQueue.main.async {
-                    Navigate.shared.go(UIViewController {
+                    Navigate.shared.go(ViewController {
                         View {
                             SafeAreaView {
                                 AllPostView(posts: posts)

@@ -17,7 +17,7 @@
 		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
-		29C6114F237E3BA900F673EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* ViewController.swift */; };
+		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
 		29C61152237E3BA900F673EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C61150237E3BA900F673EE /* Main.storyboard */; };
 		29C61154237E3BAB00F673EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C61153237E3BAB00F673EE /* Assets.xcassets */; };
 		29C61157237E3BAB00F673EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */; };
@@ -58,7 +58,7 @@
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		29C6114E237E3BA900F673EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		29C6114E237E3BA900F673EE /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		29C61151237E3BA900F673EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29C61153237E3BAB00F673EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29C61156237E3BAB00F673EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
 				2902428A2391C9D80095653D /* Views */,
 				29C6118A237E3E4B00F673EE /* Models */,
-				29C6114E237E3BA900F673EE /* ViewController.swift */,
+				29C6114E237E3BA900F673EE /* BaseController.swift */,
 				29C61150237E3BA900F673EE /* Main.storyboard */,
 				29C61153237E3BAB00F673EE /* Assets.xcassets */,
 				29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */,
@@ -349,7 +349,7 @@
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
 				2902429E239482980095653D /* PostItemView.swift in Sources */,
 				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
-				29C6114F237E3BA900F673EE /* ViewController.swift in Sources */,
+				29C6114F237E3BA900F673EE /* BaseController.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
 				29C6117B237E3CB900F673EE /* API.swift in Sources */,
 				29C61188237E3E4700F673EE /* User.swift in Sources */,

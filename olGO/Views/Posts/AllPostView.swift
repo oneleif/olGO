@@ -17,14 +17,12 @@ class AllPostView: UIView {
         
         embed {
             Table {
-                posts.map { post in
-                    View {
-                        VStack {
-                            posts.map { PostItemView(post: $0) }
-                        }
-                    }
+                posts.map {
+                    PostItemView(post: $0)
                 }
             }
+        .navigateSet(title: "All Posts")
+            
         }
     }
     

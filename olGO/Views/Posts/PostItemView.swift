@@ -16,12 +16,15 @@ class PostItemView: UIView {
         super.init(frame: .zero)
         
         embed {
-            VStack {
+            VStack(distribution: .fillEqually) {
                 [
-                    Label(post.title),
-                    Label(post.content)
+                    Label.title1(post.title),
+                    Label.body(post.description),
+                    Label.callout("Tags: \(post.tags.map { $0 }.joined(separator: ", "))")
+                        .configure { $0.isHidden = post.tags.isEmpty }
                 ]
             }
+            .padding()
         }
     }
     
