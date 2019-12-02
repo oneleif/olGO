@@ -76,6 +76,14 @@ class RegisterView: UIView {
                         Navigate.shared.go(UIViewController {
                             LoginView()
                         }, style: .push)
+                        
+                        DispatchQueue.main.async {
+                            Navigate.shared.alert(title: "You have been Logged out...", message: "Whoops...") {_ in }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                Navigate.shared.dismiss()
+                                Navigate.shared.dismiss()
+                            }
+                        }
                     }
                 }
             })

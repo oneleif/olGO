@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseController.swift
 //  olGO
 //
 //  Created by Zach Eriksen on 11/14/19.
@@ -10,7 +10,7 @@ import UIKit
 import SwiftUIKit
 import Combine
 
-class ViewController: UIViewController {
+class BaseController: UIViewController {
     private var username: String = ""
     private var password: String = ""
     private var bag: [AnyCancellable] = []
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     var addPostButton: UIView {
         Button("Add Post", titleColor: .blue, forEvent: .touchUpInside) {
             
-            Navigate.shared.go(UIViewController {
+            Navigate.shared.go(ViewController {
                 View {
                     SafeAreaView {
                         AddPostView()

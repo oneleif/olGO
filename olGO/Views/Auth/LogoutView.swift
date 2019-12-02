@@ -37,6 +37,14 @@ class LogoutView: UIView {
         self.isRequesting = true
         self.bag.append(API.instance.logout()
             .sink(receiveCompletion: { (result) in
+                DispatchQueue.main.async {
+
+                    Navigate.shared.set(title: "This is something")
+                    Navigate.shared.alert(title: "You have been logged out..", message: "We are sorry", withActions: [.dismiss])
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        Navigate.shared.dismiss()
+                    }
+                }
                 
                 self.isRequesting = false
                 if case .failure(let error) = result {
@@ -50,6 +58,7 @@ class LogoutView: UIView {
                 }
                 
                 print("Logout Response Status Code: \(response.statusCode)")
+                
         })
     }
 }
