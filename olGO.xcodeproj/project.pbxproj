@@ -10,9 +10,15 @@
 		2902428C2391CA240095653D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902428B2391CA240095653D /* LoginView.swift */; };
 		2902428E2391CBAE0095653D /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902428D2391CBAE0095653D /* LogoutView.swift */; };
 		290242902391CC280095653D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902428F2391CC280095653D /* RegisterView.swift */; };
+		290242932392D4440095653D /* AllPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242922392D4440095653D /* AllPostView.swift */; };
+		290242962392D6AA0095653D /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242952392D6AA0095653D /* AddPostView.swift */; };
+		290242992392E36C0095653D /* SocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242982392E36C0095653D /* SocialView.swift */; };
+		2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429A2392E3760095653D /* UpdateSocialView.swift */; };
+		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
+		290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
-		29C6114F237E3BA900F673EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* ViewController.swift */; };
+		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
 		29C61152237E3BA900F673EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C61150237E3BA900F673EE /* Main.storyboard */; };
 		29C61154237E3BAB00F673EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29C61153237E3BAB00F673EE /* Assets.xcassets */; };
 		29C61157237E3BAB00F673EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */; };
@@ -45,10 +51,16 @@
 		2902428B2391CA240095653D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2902428D2391CBAE0095653D /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		2902428F2391CC280095653D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		290242922392D4440095653D /* AllPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPostView.swift; sourceTree = "<group>"; };
+		290242952392D6AA0095653D /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		290242982392E36C0095653D /* SocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialView.swift; sourceTree = "<group>"; };
+		2902429A2392E3760095653D /* UpdateSocialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSocialView.swift; sourceTree = "<group>"; };
+		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
+		290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+olGO.swift"; sourceTree = "<group>"; };
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		29C6114E237E3BA900F673EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		29C6114E237E3BA900F673EE /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		29C61151237E3BA900F673EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29C61153237E3BAB00F673EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29C61156237E3BAB00F673EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,11 +105,73 @@
 		2902428A2391C9D80095653D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				290242972392E3620095653D /* Social */,
+				290242942392D6950095653D /* Posts */,
+				290242912392D42F0095653D /* Auth */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		290242912392D42F0095653D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
 				2902428B2391CA240095653D /* LoginView.swift */,
 				2902428D2391CBAE0095653D /* LogoutView.swift */,
 				2902428F2391CC280095653D /* RegisterView.swift */,
 			);
-			path = Views;
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		290242942392D6950095653D /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				290242922392D4440095653D /* AllPostView.swift */,
+				290242952392D6AA0095653D /* AddPostView.swift */,
+				2902429D239482980095653D /* PostItemView.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		290242972392E3620095653D /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				290242982392E36C0095653D /* SocialView.swift */,
+				2902429A2392E3760095653D /* UpdateSocialView.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		2902429F2394E28E0095653D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				29C6117A237E3CB900F673EE /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		290242A02394E2A00095653D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		290242A42394E2E10095653D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				29C6114A237E3BA900F673EE /* AppDelegate.swift */,
+				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		290242A52394E2EF0095653D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				29C6114E237E3BA900F673EE /* BaseController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		29C6113E237E3BA900F673EE = {
@@ -123,16 +197,16 @@
 		29C61149237E3BA900F673EE /* olGO */ = {
 			isa = PBXGroup;
 			children = (
-				29C6114A237E3BA900F673EE /* AppDelegate.swift */,
-				29C6114C237E3BA900F673EE /* SceneDelegate.swift */,
+				290242A42394E2E10095653D /* Delegates */,
+				290242A02394E2A00095653D /* Extensions */,
+				2902429F2394E28E0095653D /* API */,
 				2902428A2391C9D80095653D /* Views */,
 				29C6118A237E3E4B00F673EE /* Models */,
-				29C6114E237E3BA900F673EE /* ViewController.swift */,
-				29C61150237E3BA900F673EE /* Main.storyboard */,
+				290242A52394E2EF0095653D /* ViewControllers */,
 				29C61153237E3BAB00F673EE /* Assets.xcassets */,
+				29C61150237E3BA900F673EE /* Main.storyboard */,
 				29C61155237E3BAB00F673EE /* LaunchScreen.storyboard */,
 				29C61158237E3BAB00F673EE /* Info.plist */,
-				29C6117A237E3CB900F673EE /* API.swift */,
 			);
 			path = olGO;
 			sourceTree = "<group>";
@@ -305,7 +379,13 @@
 				2902428E2391CBAE0095653D /* LogoutView.swift in Sources */,
 				29C61189237E3E4700F673EE /* PostItem.swift in Sources */,
 				2902428C2391CA240095653D /* LoginView.swift in Sources */,
-				29C6114F237E3BA900F673EE /* ViewController.swift in Sources */,
+				290242932392D4440095653D /* AllPostView.swift in Sources */,
+				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
+				290242992392E36C0095653D /* SocialView.swift in Sources */,
+				2902429E239482980095653D /* PostItemView.swift in Sources */,
+				290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */,
+				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
+				29C6114F237E3BA900F673EE /* BaseController.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
 				29C6117B237E3CB900F673EE /* API.swift in Sources */,
 				29C61188237E3E4700F673EE /* User.swift in Sources */,
@@ -644,7 +724,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
 			requirement = {
-				branch = master;
+				branch = develop;
 				kind = branch;
 			};
 		};
