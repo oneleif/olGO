@@ -57,12 +57,16 @@ class AddPostView: UIView {
                                 }
                             },
                             Label("Post Content"),
-                            MultiLineField(value: "", keyboardType: .default).frame(height: 200).padding()
+                            MultiLineField(value: "", keyboardType: .default)
+                                .inputHandler { self.postContent = $0 }
+                                .frame(height: 200)
+                                .padding()
                                 .layer {
                                     $0.borderWidth = 1
                                     $0.borderColor = UIColor.darkGray.cgColor
                                     $0.cornerRadius = 8
                             }
+                            
                         ]
                         
                     }

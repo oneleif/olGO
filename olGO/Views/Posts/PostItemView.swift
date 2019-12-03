@@ -15,15 +15,18 @@ class PostItemView: UIView {
         super.init(frame: .zero)
         
         embed {
-            VStack(distribution: .fillEqually) {
-                [
-                    Label.title1(post.title),
-                    Label.body(post.description),
-                    Label.callout("Tags: \(post.tags.map { $0 }.joined(separator: ", "))")
-                        .configure { $0.isHidden = post.tags.isEmpty }
-                ]
+            NavButton(destination: UIViewController { View { PostDetailView(post: post) } },
+                      style: .push) {
+                        VStack(distribution: .fillEqually) {
+                            [
+                                Label.title1(post.title),
+                                Label.body(post.description),
+                                Label.callout("Tags: \(post.tags.map { $0 }.joined(separator: ", "))")
+                                    .configure { $0.isHidden = post.tags.isEmpty }
+                            ]
+                        }
+                        .padding()
             }
-            .padding()
         }
     }
     
