@@ -61,7 +61,8 @@ class BaseController: UIViewController {
     
     var allPostButton: UIView {
         Button("Load All Posts", titleColor: .blue, forEvent: .touchUpInside) {
-            API.instance.allPosts().sink(receiveCompletion: { (completion) in
+            API.instance.allPosts()
+                .sink(receiveCompletion: { (completion) in
                 print(completion)
             }) { posts in
                 DispatchQueue.main.async {
