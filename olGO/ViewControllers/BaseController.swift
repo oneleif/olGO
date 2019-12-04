@@ -99,7 +99,7 @@ class BaseController: UIViewController {
                 print(completion)
             }) { social in
                 DispatchQueue.main.async {
-                    Navigate.shared.go(UIViewController {
+                    Navigate.shared.go(ViewController {
                         View {
                             SafeAreaView {
                                 SocialView(social: social)
