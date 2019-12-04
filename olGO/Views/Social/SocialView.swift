@@ -15,35 +15,56 @@ class SocialView: UIView {
     init(social: SocialInformation) {
         super.init(frame: .zero)
         
+        let profileImageURL = URL(string: social.profileImage)
+        
         embed {
             
-            VStack(distribution: .fillEqually) {
+            VStack {
                 [
-                    Spacer(),
-                    Label("\(social.id)"),
-                    Label("\(social.username)"),
-                    Label("\(social.firstName)"),
-                    Label("\(social.lastName)"),
-                    Label("\(social.email)"),
-                    Label("\(social.discordUsername)"),
-                    Label("\(social.githubUsername)"),
-                    Label("\(social.tags)"),
-                    Label("\(social.profileImage)"),
-                    Label("\(social.biography)"),
-                    Label("\(social.links)"),
-                    Label("\(social.location)"),
-                    Spacer(),
-                    NavButton("Update Social",
-                              destination: UIViewController {
-                                View {
-                                    UpdateSocialView(social: social)
-                                }
-                        },
-                              style: .modal,
-                              titleColor: .blue)
+                    VStack(withSpacing: 8) {
+                        [
+                            profileImageURL.map { url in
+                                Image(url)
+                                    .contentMode(.scaleAspectFit)
+                                    .frame(height: 168)
+                                    .configure { $0.isHidden = !UIApplication.shared.canOpenURL(url) }
+                                    .layer { $0.cornerRadius = 8 }
+                            },
+                            Label.title3("\(social.firstName) \(social.lastName)"),
+                            Label.headline("\(social.email)"),
+                            Label.subheadline("Location: \(social.location)"),
+                            
+                            Divider(),
+                            
+                            HStack {
+                                [
+                                    Label.callout("Discord: \(social.discordUsername)"),
+                                    Label.callout("GitHub: \(social.githubUsername)")
+                                ]
+                            },
+                            Label.subheadline("Interests: \(social.tags.joined(separator: " "))"),
+                            Label.caption1("Links: \(social.links.joined(separator: " "))"),
+                            
+                            Divider(),
+                            
+                            Label.body("\(social.biography)"),
+                            
+                            Spacer()
+                        ]
+                    }
+                    
                 ]
             }
-            
+            .navigateSet(title: social.username)
+            .navigateSetRight(barButton: UIBarButtonItem(customView:
+                NavButton("Edit",
+                          destination: UIViewController {
+                            View {
+                                UpdateSocialView(social: social)
+                            }
+                    },
+                          style: .modal,
+                          titleColor: .blue)))
         }
     }
     

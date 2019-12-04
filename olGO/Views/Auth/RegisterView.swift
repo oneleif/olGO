@@ -11,9 +11,10 @@ import SwiftUIKit
 import Combine
 
 class RegisterView: UIView {
+    private var bag = CancelBag()
+    
     private var username: String = ""
     private var password: String = ""
-    private var bag: [AnyCancellable] = []
     
     private var isRequesting: Bool = false
     
@@ -61,7 +62,8 @@ class RegisterView: UIView {
             return
         }
         self.isRequesting = true
-        self.bag.append(API.instance.register(user: User(username: self.username,
+        
+        API.instance.register(user: User(username: self.username,
                                                          password: self.password))
             .sink(receiveCompletion: { (result) in
                 self.isRequesting = false
@@ -76,18 +78,10 @@ class RegisterView: UIView {
                         Navigate.shared.go(UIViewController {
                             LoginView()
                         }, style: .push)
-                        
-                        DispatchQueue.main.async {
-                            Navigate.shared.alert(title: "You have been Logged out...", message: "Whoops...") {_ in }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                Navigate.shared.dismiss()
-                                Navigate.shared.dismiss()
-                            }
-                        }
                     }
                 }
             })
-        )
+            .canceled(by: &self.bag)
     }
     
 }
