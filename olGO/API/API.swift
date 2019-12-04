@@ -80,7 +80,7 @@ class API {
     }()
     // Configuations
     let path = "http://localhost:8080/api"
-    //    let path: String = "https://olapi-develop.vapor.cloud/api"
+//    let path: String = "https://olapi-develop.vapor.cloud/api"
     
     // Lazy Variables
     lazy var url: URL = URL(string: path)!
@@ -186,7 +186,7 @@ extension API: SocialRequesting {
     func update(social: SocialInformation) -> URLSession.DataTaskPublisher {
         let socialData = try? JSONEncoder().encode(social)
         
-        var request = url.request(forRoute: .social, withID: social.id)
+        var request = url.request(forRoute: .social)
         
         return request.dataTaskPublish(method: "POST",
                                        withBody: socialData)

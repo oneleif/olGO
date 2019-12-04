@@ -9,7 +9,6 @@
 import UIKit
 import SwiftUIKit
 
-
 class AllPostView: UIView {
     
     init(posts: [PostItem]) {
