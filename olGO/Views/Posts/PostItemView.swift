@@ -15,7 +15,12 @@ class PostItemView: UIView {
         super.init(frame: .zero)
         
         embed {
-            NavButton(destination: UIViewController { View { PostDetailView(post: post) } },
+            NavButton(destination:
+                ViewController {
+                    View {
+                        PostDetailView(post: post)
+                    }
+                },
                       style: .push) {
                         VStack(distribution: .fillEqually) {
                             [

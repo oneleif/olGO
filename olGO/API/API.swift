@@ -186,7 +186,7 @@ extension API: SocialRequesting {
     func update(social: SocialInformation) -> URLSession.DataTaskPublisher {
         let socialData = try? JSONEncoder().encode(social)
         
-        var request = url.request(forRoute: .social, withID: social.id)
+        var request = url.request(forRoute: .social)
         
         return request.dataTaskPublish(method: "POST",
                                        withBody: socialData)

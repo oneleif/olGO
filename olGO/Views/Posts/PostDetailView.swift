@@ -31,6 +31,7 @@ class PostDetailView: UIView {
                 }
                 .padding()
             }
+            .navigateSetRight(barButton: UIBarButtonItem(customView: Button("Edit", titleColor: .blue) { print("Edit") }))
         }
     }
     
