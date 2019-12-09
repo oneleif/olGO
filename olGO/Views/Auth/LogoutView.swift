@@ -40,7 +40,7 @@ class LogoutView: UIView {
                 DispatchQueue.main.async {
 
                     Navigate.shared.set(title: "This is something")
-                    Navigate.shared.alert(title: "You have been logged out..", message: "We are sorry", withActions: [.dismiss])
+                    Navigate.shared.alert(title: "You have been logged out..", message: "We are sorry", withActions: [.dismiss], secondsToPersist: nil)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         Navigate.shared.dismiss()
                     }

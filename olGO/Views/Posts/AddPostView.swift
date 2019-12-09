@@ -72,10 +72,15 @@ class AddPostView: UIView {
                     }
                 ]
             }
-        .navigateSet(title: "Add Post")
-        .navigateSetRight(barButton: UIBarButtonItem(customView: Button("Add Post", titleColor: .blue) {
-            self.addPost()
-        }))
+            .navigateSet(title: "Add Post")
+            .navigateSetRight(barButton: UIBarButtonItem {
+                
+                Button("Add Post", titleColor: .blue) {
+                    self.addPost()
+                }
+                
+                }
+            )
         }
     }
     
@@ -104,29 +109,29 @@ class AddPostView: UIView {
         
         API.instance.add(post: post)
             .sink(receiveCompletion: { (result) in
-            
-            self.isRequesting = false
-            if case .failure(let error) = result {
-                print(error.localizedDescription)
-            }
-            
-        }) { (data, response) in
-            
-            guard let response = response as? HTTPURLResponse else {
-                return
-            }
-            
-            print("Add Post Response Status Code: \(response.statusCode)")
-            
-            if 200 ... 300 ~= response.statusCode {
-                DispatchQueue.main.async {
-                    Navigate.shared.go(UIViewController {
-                        View(backgroundColor: .white) {
-                            Label("You added a post!")
-                        }
-                    }, style: .modal)
+                
+                self.isRequesting = false
+                if case .failure(let error) = result {
+                    print(error.localizedDescription)
                 }
-            }
+                
+            }) { (data, response) in
+                
+                guard let response = response as? HTTPURLResponse else {
+                    return
+                }
+                
+                print("Add Post Response Status Code: \(response.statusCode)")
+                
+                if 200 ... 300 ~= response.statusCode {
+                    DispatchQueue.main.async {
+                        Navigate.shared.go(UIViewController {
+                            View(backgroundColor: .white) {
+                                Label("You added a post!")
+                            }
+                        }, style: .modal)
+                    }
+                }
         }
         .canceled(by: &self.bag)
         
