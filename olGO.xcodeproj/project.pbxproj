@@ -728,7 +728,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
 			requirement = {
-				branch = feature/BarButton;
+				branch = develop;
 				kind = branch;
 			};
 		};
