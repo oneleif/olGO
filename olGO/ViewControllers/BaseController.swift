@@ -63,17 +63,19 @@ class BaseController: UIViewController {
         Button("Load All Posts", titleColor: .blue, forEvent: .touchUpInside) {
             API.instance.allPosts()
                 .sink(receiveCompletion: { (completion) in
-                print(completion)
-            }) { posts in
-                DispatchQueue.main.async {
-                    Navigate.shared.go(ViewController {
-                        View {
-                            SafeAreaView {
-                                AllPostView(posts: posts)
+                    DispatchQueue.main.async {
+                        self.handle(completion: completion)
+                    }
+                }) { posts in
+                    DispatchQueue.main.async {
+                        Navigate.shared.go(ViewController {
+                            View {
+                                SafeAreaView {
+                                    AllPostView(posts: posts)
+                                }
                             }
-                        }
-                    }, style: .push)
-                }
+                        }, style: .push)
+                    }
             }
             .canceled(by: &self.bag)
             
@@ -96,7 +98,9 @@ class BaseController: UIViewController {
     var socialButton: UIView {
         Button("SocialInformation", titleColor: .blue, forEvent: .touchUpInside) {
             API.instance.social().sink(receiveCompletion: { (completion) in
-                print(completion)
+                DispatchQueue.main.async {
+                    self.handle(completion: completion)
+                }
             }) { social in
                 DispatchQueue.main.async {
                     Navigate.shared.go(ViewController {
@@ -110,6 +114,19 @@ class BaseController: UIViewController {
             }
             .canceled(by: &self.bag)
             
+        }
+    }
+    
+    private func handle(completion: Subscribers.Completion<Error>) {
+        if case .failure(let error) = completion {
+            print(error.localizedDescription)
+            Navigate.shared.toast(style: .error, secondsToPersist: 3) {
+                Label(error.localizedDescription)
+            }
+        } else {
+            Navigate.shared.toast(style: .success, secondsToPersist: 1) {
+                Label("Success!")
+            }
         }
     }
 }
