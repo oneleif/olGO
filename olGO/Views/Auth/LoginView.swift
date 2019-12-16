@@ -11,9 +11,10 @@ import SwiftUIKit
 import Combine
 
 class LoginView: UIView {
+    private var bag = CancelBag()
+    
     private var username: String = ""
     private var password: String = ""
-    private var bag: [AnyCancellable] = []
     
     private var isRequesting: Bool = false
     
@@ -42,29 +43,7 @@ class LoginView: UIView {
                         ]
                     },
                     Button("Login", titleColor: .blue) {
-                        guard !self.isRequesting else {
-                            return
-                        }
-                        self.isRequesting = true
-                        self.bag.append(API.instance.login(user: User(username: self.username,
-                                                                      password: self.password))
-                            .sink(receiveCompletion: { (result) in
-                                self.isRequesting = false
-                                switch result {
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                case .finished:
-                                    DispatchQueue.main.async {
-                                        Navigate.shared.go(UIViewController {
-                                                            View(backgroundColor: .white) {
-                                                                Label("You are logged in")
-                                                            }
-                                        }, style: .push)
-                                    }
-                                }
-                            }) { (data, response) in
-                                print("Attempt Log in")
-                        })
+                        self.login()
                     }
                     .frame(height: 60),
                     Spacer()
@@ -75,5 +54,40 @@ class LoginView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func login() {
+        guard !self.isRequesting else {
+            return
+        }
+        self.isRequesting = true
+        API.instance.login(user: User(username: self.username,
+                                                      password: self.password))
+            .sink(receiveCompletion: { (result) in
+                
+                self.isRequesting = false
+                if case .failure(let error) = result {
+                    print(error.localizedDescription)
+                }
+                
+            }) { (data, response) in
+                
+                guard let response = response as? HTTPURLResponse else {
+                    return
+                }
+                
+                print("Login Response Status Code: \(response.statusCode)")
+                
+                if 200 ... 300 ~= response.statusCode {
+                    DispatchQueue.main.async {
+                        Navigate.shared.go(UIViewController {
+                                            View(backgroundColor: .white) {
+                                                Label("You are logged in")
+                                            }
+                        }, style: .modal)
+                    }
+                }
+        }
+        .canceled(by: &self.bag)
     }
 }
