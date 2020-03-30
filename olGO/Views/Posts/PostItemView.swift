@@ -17,7 +17,7 @@ class PostItemView: UIView {
         embed {
             NavButton(destination:
                 ViewController {
-                    View {
+                    UIView {
                         PostDetailView(post: post)
                     }
                 },

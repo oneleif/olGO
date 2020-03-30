@@ -126,7 +126,7 @@ class AddPostView: UIView {
                 if 200 ... 300 ~= response.statusCode {
                     DispatchQueue.main.async {
                         Navigate.shared.go(UIViewController {
-                            View(backgroundColor: .white) {
+                            UIView(backgroundColor: .white) {
                                 Label("You added a post!")
                             }
                         }, style: .modal)
