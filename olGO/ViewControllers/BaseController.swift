@@ -28,16 +28,16 @@ class BaseController: UIViewController {
                     [
                         Label("Auth Calls"),
                         NavButton("Register",
-                                  destination: UIViewController { View(backgroundColor: .white) { RegisterView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { RegisterView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         NavButton("Login",
-                                  destination: UIViewController { View(backgroundColor: .white) { LoginView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { LoginView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
                         NavButton("Logout",
-                                  destination: UIViewController { View(backgroundColor: .white) { LogoutView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { LogoutView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
@@ -69,7 +69,7 @@ class BaseController: UIViewController {
                 }) { posts in
                     DispatchQueue.main.async {
                         Navigate.shared.go(ViewController {
-                            View {
+                            UIView {
                                 SafeAreaView {
                                     AllPostView(posts: posts)
                                 }
@@ -86,7 +86,7 @@ class BaseController: UIViewController {
         Button("Add Post", titleColor: .blue, forEvent: .touchUpInside) {
             
             Navigate.shared.go(ViewController {
-                View {
+                UIView {
                     SafeAreaView {
                         AddPostView()
                     }
@@ -104,7 +104,7 @@ class BaseController: UIViewController {
             }) { social in
                 DispatchQueue.main.async {
                     Navigate.shared.go(ViewController {
-                        View {
+                        UIView {
                             SafeAreaView {
                                 SocialView(social: social)
                             }
