@@ -17,6 +17,11 @@
 		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
 		290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */; };
 		290B6667239609D400230D65 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B6666239609D400230D65 /* PostDetailView.swift */; };
+		295D6191243A365E00106910 /* PublicUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618D243A365E00106910 /* PublicUserResponse.swift */; };
+		295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618E243A365E00106910 /* AccessTokenResponse.swift */; };
+		295D6193243A365E00106910 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618F243A365E00106910 /* LoginResponse.swift */; };
+		295D6194243A365E00106910 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D6190243A365E00106910 /* ErrorResponse.swift */; };
+		297E45A6243E82A5007E46AA /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 297E45A5243E82A5007E46AA /* FLite */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
@@ -59,6 +64,10 @@
 		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
 		290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+olGO.swift"; sourceTree = "<group>"; };
 		290B6666239609D400230D65 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		295D618D243A365E00106910 /* PublicUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicUserResponse.swift; sourceTree = "<group>"; };
+		295D618E243A365E00106910 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
+		295D618F243A365E00106910 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		295D6190243A365E00106910 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */,
+				297E45A6243E82A5007E46AA /* FLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +157,7 @@
 		2902429F2394E28E0095653D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				295D618C243A365E00106910 /* Responses */,
 				29C6117A237E3CB900F673EE /* API.swift */,
 			);
 			path = API;
@@ -175,6 +186,17 @@
 				29C6114E237E3BA900F673EE /* BaseController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		295D618C243A365E00106910 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				295D618D243A365E00106910 /* PublicUserResponse.swift */,
+				295D618E243A365E00106910 /* AccessTokenResponse.swift */,
+				295D618F243A365E00106910 /* LoginResponse.swift */,
+				295D6190243A365E00106910 /* ErrorResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		29C6113E237E3BA900F673EE = {
@@ -259,6 +281,7 @@
 			name = olGO;
 			packageProductDependencies = (
 				29C6117D237E3CE400F673EE /* SwiftUIKit */,
+				297E45A5243E82A5007E46AA /* FLite */,
 			);
 			productName = olGO;
 			productReference = 29C61147237E3BA900F673EE /* olGO.app */;
@@ -334,6 +357,7 @@
 			mainGroup = 29C6113E237E3BA900F673EE;
 			packageReferences = (
 				29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+				297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */,
 			);
 			productRefGroup = 29C61148237E3BA900F673EE /* Products */;
 			projectDirPath = "";
@@ -381,15 +405,19 @@
 				290242902391CC280095653D /* RegisterView.swift in Sources */,
 				2902428E2391CBAE0095653D /* LogoutView.swift in Sources */,
 				29C61189237E3E4700F673EE /* PostItem.swift in Sources */,
+				295D6191243A365E00106910 /* PublicUserResponse.swift in Sources */,
 				290B6667239609D400230D65 /* PostDetailView.swift in Sources */,
 				2902428C2391CA240095653D /* LoginView.swift in Sources */,
+				295D6193243A365E00106910 /* LoginResponse.swift in Sources */,
 				290242932392D4440095653D /* AllPostView.swift in Sources */,
 				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
 				2902429E239482980095653D /* PostItemView.swift in Sources */,
 				290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */,
 				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
+				295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */,
 				29C6114F237E3BA900F673EE /* BaseController.swift in Sources */,
+				295D6194243A365E00106910 /* ErrorResponse.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
 				29C6117B237E3CB900F673EE /* API.swift in Sources */,
 				29C61188237E3E4700F673EE /* User.swift in Sources */,
@@ -724,6 +752,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xLeif/FLite";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
@@ -735,6 +771,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		297E45A5243E82A5007E46AA /* FLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */;
+			productName = FLite;
+		};
 		29C6117D237E3CE400F673EE /* SwiftUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
