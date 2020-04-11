@@ -17,6 +17,7 @@
 		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
 		290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */; };
 		290B6667239609D400230D65 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B6666239609D400230D65 /* PostDetailView.swift */; };
+		292D06AE2442693400644D2A /* JSONDecoder+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */; };
 		295D6191243A365E00106910 /* PublicUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618D243A365E00106910 /* PublicUserResponse.swift */; };
 		295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618E243A365E00106910 /* AccessTokenResponse.swift */; };
 		295D6193243A365E00106910 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618F243A365E00106910 /* LoginResponse.swift */; };
@@ -64,6 +65,7 @@
 		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
 		290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+olGO.swift"; sourceTree = "<group>"; };
 		290B6666239609D400230D65 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+olGO.swift"; sourceTree = "<group>"; };
 		295D618D243A365E00106910 /* PublicUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicUserResponse.swift; sourceTree = "<group>"; };
 		295D618E243A365E00106910 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		295D618F243A365E00106910 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */,
+				292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				295D6193243A365E00106910 /* LoginResponse.swift in Sources */,
 				290242932392D4440095653D /* AllPostView.swift in Sources */,
 				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
+				292D06AE2442693400644D2A /* JSONDecoder+olGO.swift in Sources */,
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
 				2902429E239482980095653D /* PostItemView.swift in Sources */,
 				290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */,
