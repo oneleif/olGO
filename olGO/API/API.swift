@@ -133,7 +133,7 @@ extension API: AuthRequesting {
                                        withBody: postData)
             .mapError { $0 as Error }
             .compactMap {
-                guard let loginInfo = try? JSONDecoder().decode(LoginResponse.self, from: $0.data) else {
+                guard let loginInfo = try? JSONDecoder.dateDecoder.decode(LoginResponse.self, from: $0.data) else {
                     return nil
                 }
                 self.token = loginInfo.token
