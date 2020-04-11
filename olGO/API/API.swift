@@ -8,13 +8,19 @@
 
 import Foundation
 import Combine
+import FLite
 
 extension URLRequest {
     mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.DataTaskPublisher {
-        let headers = [
+        var headers = [
             "Content-Type": "application/json; charset=utf-8",
             "cache-control": "no-cache",
         ]
+        
+        if let token = API.instance.token {
+            print("Expires: \(token.expiresAt)")
+            headers["Authorization"] = "Bearer \(token.accessToken)"
+        }
         
         httpMethod = method
         allHTTPHeaderFields = headers
@@ -41,8 +47,8 @@ extension URL {
 }
 
 protocol AuthRequesting {
-    func register(user: User) -> AnyPublisher<HTTPURLResponse, Error>
-    func login(user: User) -> URLSession.DataTaskPublisher
+    func register(user: User) -> AnyPublisher<PublicUserResponse, Error>
+    func login(user: User) -> AnyPublisher<LoginResponse, Error>
     func logout() -> URLSession.DataTaskPublisher
 }
 
@@ -76,22 +82,29 @@ class API {
     }
     
     static var instance: API = {
-        API()
+        FLite.storage = .memory
+        
+        FLite.prepare(model: User.self)
+        
+        return API()
     }()
+    
     // Configuations
-    let path = "http://localhost:8080/api"
-//    let path: String = "https://olapi-develop.vapor.cloud/api"
+    //    let path = "http://localhost:8080/api"
+    let path: String = "https://dev.api.oneleif.com/api"
     
     // Lazy Variables
     lazy var url: URL = URL(string: path)!
     
     // Cached Values
-    var userInfo: SocialInformation?
+    public var userInfo: SocialInformation?
+    
+    fileprivate var token: AccessTokenResponse?
 }
 
 extension API: AuthRequesting {
-    func register(user: User) -> AnyPublisher<HTTPURLResponse, Error> {
-        let postData = try? JSONEncoder().encode(User(username: user.username,
+    func register(user: User) -> AnyPublisher<PublicUserResponse, Error> {
+        let postData = try? JSONEncoder().encode(User(email: user.email,
                                                       password: user.password))
         
         var request = url.request(forRoute: .register)
@@ -99,18 +112,35 @@ extension API: AuthRequesting {
         return request.dataTaskPublish(method: "POST",
                                        withBody: postData)
             .mapError { $0 as Error }
-            .compactMap { $0.response as? HTTPURLResponse }
-            .eraseToAnyPublisher()
+            .compactMap {
+                guard let userInfo = try? JSONDecoder().decode(PublicUserResponse.self, from: $0.data) else {
+                    return nil
+                }
+                self.userInfo = userInfo.social
+                
+                return userInfo
+        }
+        .eraseToAnyPublisher()
     }
     
-    func login(user: User) -> URLSession.DataTaskPublisher {
-        let postData = try? JSONEncoder().encode(User(username: user.username,
+    func login(user: User) -> AnyPublisher<LoginResponse, Error> {
+        let postData = try? JSONEncoder().encode(User(email: user.email,
                                                       password: user.password))
         
         var request = url.request(forRoute: .login)
         
         return request.dataTaskPublish(method: "POST",
                                        withBody: postData)
+            .mapError { $0 as Error }
+            .compactMap {
+                guard let loginInfo = try? JSONDecoder().decode(LoginResponse.self, from: $0.data) else {
+                    return nil
+                }
+                self.token = loginInfo.token
+                
+                return loginInfo
+        }
+            .eraseToAnyPublisher()
     }
     
     func logout() -> URLSession.DataTaskPublisher {
