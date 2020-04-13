@@ -8,7 +8,6 @@
 
 import Foundation
 import Combine
-import FLite
 
 extension URLRequest {
     mutating func dataTaskPublish(method: String = "GET", withBody body: Data? = nil) -> URLSession.DataTaskPublisher {
@@ -81,13 +80,7 @@ class API {
         case social
     }
     
-    static var instance: API = {
-        FLite.storage = .memory
-        
-        FLite.prepare(model: User.self)
-        
-        return API()
-    }()
+    static var instance: API = API()
     
     // Configuations
     //    let path = "http://localhost:8080/api"

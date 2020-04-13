@@ -22,7 +22,6 @@
 		295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618E243A365E00106910 /* AccessTokenResponse.swift */; };
 		295D6193243A365E00106910 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618F243A365E00106910 /* LoginResponse.swift */; };
 		295D6194243A365E00106910 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D6190243A365E00106910 /* ErrorResponse.swift */; };
-		297E45A6243E82A5007E46AA /* FLite in Frameworks */ = {isa = PBXBuildFile; productRef = 297E45A5243E82A5007E46AA /* FLite */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
@@ -95,7 +94,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */,
-				297E45A6243E82A5007E46AA /* FLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +282,6 @@
 			name = olGO;
 			packageProductDependencies = (
 				29C6117D237E3CE400F673EE /* SwiftUIKit */,
-				297E45A5243E82A5007E46AA /* FLite */,
 			);
 			productName = olGO;
 			productReference = 29C61147237E3BA900F673EE /* olGO.app */;
@@ -360,7 +357,6 @@
 			mainGroup = 29C6113E237E3BA900F673EE;
 			packageReferences = (
 				29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
-				297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */,
 			);
 			productRefGroup = 29C61148237E3BA900F673EE /* Products */;
 			projectDirPath = "";
@@ -756,14 +752,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/0xLeif/FLite";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
 		29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
@@ -775,11 +763,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		297E45A5243E82A5007E46AA /* FLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 297E45A4243E82A5007E46AA /* XCRemoteSwiftPackageReference "FLite" */;
-			productName = FLite;
-		};
 		29C6117D237E3CE400F673EE /* SwiftUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import FluentSQLite
 
 struct SocialInformation: Codable {
     var id: Int?
@@ -24,7 +23,7 @@ struct SocialInformation: Codable {
     var location: String = ""
 }
 
-final class User: SQLiteModel, Codable {
+class User: Codable {
     var id: Int?
     // Auth Information
     var email: String
@@ -38,5 +37,3 @@ final class User: SQLiteModel, Codable {
         self.password = password
     }
 }
-
-extension User: Migration { }
