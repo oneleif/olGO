@@ -22,6 +22,7 @@
 		295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618E243A365E00106910 /* AccessTokenResponse.swift */; };
 		295D6193243A365E00106910 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618F243A365E00106910 /* LoginResponse.swift */; };
 		295D6194243A365E00106910 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D6190243A365E00106910 /* ErrorResponse.swift */; };
+		2975BD4524452850005FB4BB /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2975BD4424452850005FB4BB /* SwiftUIKit */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
@@ -31,7 +32,6 @@
 		29C61162237E3BAB00F673EE /* olGOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61161237E3BAB00F673EE /* olGOTests.swift */; };
 		29C6116D237E3BAB00F673EE /* olGOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6116C237E3BAB00F673EE /* olGOUITests.swift */; };
 		29C6117B237E3CB900F673EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6117A237E3CB900F673EE /* API.swift */; };
-		29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29C6117D237E3CE400F673EE /* SwiftUIKit */; };
 		29C61188237E3E4700F673EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61186237E3E4700F673EE /* User.swift */; };
 		29C61189237E3E4700F673EE /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61187237E3E4700F673EE /* PostItem.swift */; };
 /* End PBXBuildFile section */
@@ -93,7 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */,
+				2975BD4524452850005FB4BB /* SwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +281,7 @@
 			);
 			name = olGO;
 			packageProductDependencies = (
-				29C6117D237E3CE400F673EE /* SwiftUIKit */,
+				2975BD4424452850005FB4BB /* SwiftUIKit */,
 			);
 			productName = olGO;
 			productReference = 29C61147237E3BA900F673EE /* olGO.app */;
@@ -356,7 +356,7 @@
 			);
 			mainGroup = 29C6113E237E3BA900F673EE;
 			packageReferences = (
-				29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+				2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
 			);
 			productRefGroup = 29C61148237E3BA900F673EE /* Products */;
 			projectDirPath = "";
@@ -752,9 +752,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+		2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
+			repositoryURL = "https://github.com/oneleif/SwiftUIKit";
 			requirement = {
 				branch = develop;
 				kind = branch;
@@ -763,9 +763,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		29C6117D237E3CE400F673EE /* SwiftUIKit */ = {
+		2975BD4424452850005FB4BB /* SwiftUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			package = 2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
 			productName = SwiftUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
