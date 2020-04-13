@@ -83,7 +83,6 @@ class API {
     static var instance: API = API()
     
     // Configuations
-    //    let path = "http://localhost:8080/api"
     let path: String = "https://dev.api.oneleif.com/api"
     
     // Lazy Variables
