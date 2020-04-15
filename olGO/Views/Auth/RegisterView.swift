@@ -2,7 +2,7 @@ import SwiftUI
 
 // change view title to whatever name is actually going to be
 struct SignUpView: View {
-    @State var username = ""
+    @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
     
@@ -25,17 +25,17 @@ struct SignUpView: View {
             .padding(.top, 10)
             
             HStack {
-                Text("Username:")
+                Text("Email:       ")
                     .padding(.leading, 10)
                     .foregroundColor(.white)
-                TextField(" \"John\" ", text: $username)
+                TextField(" \"John\" ", text: $email)
                     .background(Color.white)
                     .clipShape( Capsule() )
             }
             .padding(.trailing, 10)
             
             HStack {
-                Text("Password: ")
+                Text("Password:")
                     .padding(.leading, 10)
                     .foregroundColor(.white)
                 SecureField(" Check note below", text: $password)
@@ -45,7 +45,7 @@ struct SignUpView: View {
             .padding(.trailing, 10)
             
             HStack {
-                Text("Confirm:    ")
+                Text("Confirm:   ")
                     .padding(.leading, 10)
                     .foregroundColor(.white)
                 SecureField(" Re-type Here", text: $confirmPassword)
@@ -73,7 +73,7 @@ struct SignUpView: View {
             
             Button("Submit") {
                 self.submit()
-            }.disabled(username.isEmpty || passwordProtocol())
+            }.disabled(email.isEmpty || passwordProtocol())
                 .padding(.horizontal, 50)
                 .padding(.vertical)
                 .font(.headline)
