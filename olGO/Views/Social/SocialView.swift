@@ -59,7 +59,7 @@ class SocialView: UIView {
             .navigateSetRight(barButton: UIBarButtonItem(customView:
                 NavButton("Edit",
                           destination: UIViewController {
-                            UIView {
+                            UIView(backgroundColor: .white) {
                                 UpdateSocialView(social: social)
                             }
                     },

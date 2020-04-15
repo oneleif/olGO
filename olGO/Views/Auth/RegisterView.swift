@@ -13,7 +13,7 @@ import Combine
 class RegisterView: UIView {
     private var bag = CancelBag()
     
-    private var username: String = ""
+    private var email: String = ""
     private var password: String = ""
     
     private var isRequesting: Bool = false
@@ -27,9 +27,9 @@ class RegisterView: UIView {
                     Spacer(),
                     VStack {
                         [
-                            Field(value: "", placeholder: "Username", keyboardType: .default)
+                            Field(value: "", placeholder: "Email", keyboardType: .emailAddress)
                                 .inputHandler { (value) in
-                                    self.username = value
+                                    self.email = value
                             }
                             .frame(height: 60),
                             Field(value: "", placeholder: "Password", keyboardType: .default)
@@ -62,26 +62,23 @@ class RegisterView: UIView {
             return
         }
         self.isRequesting = true
-        
-        API.instance.register(user: User(username: self.username,
-                                                         password: self.password))
+        API.instance.register(user: User(email: self.email,
+                                         password: self.password))
             .sink(receiveCompletion: { (result) in
                 self.isRequesting = false
                 if case .failure(let error) = result {
                     print(error.localizedDescription)
                 }
-            }, receiveValue: { (response) in
-                print("Register Response Status Code: \(response.statusCode)")
+            }) { (response) in
+                print(response)
                 
-                if 200 ... 300 ~= response.statusCode {
-                    DispatchQueue.main.async {
-                        Navigate.shared.go(UIViewController {
-                            LoginView()
-                        }, style: .push)
-                    }
+                DispatchQueue.main.async {
+                    Navigate.shared.go(UIViewController {
+                        LoginView()
+                    }, style: .push)
                 }
-            })
-            .canceled(by: &self.bag)
+        }
+        .canceled(by: &self.bag)
     }
     
 }
