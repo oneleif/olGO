@@ -1,10 +1,15 @@
 import SwiftUI
+import SwiftUIKit
+import Combine
 
-// change view title to whatever name is actually going to be
+// change view title to whatever name is actually going to bes
 struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
+    
+    @State private var bag = CancelBag()
+    @State private var isRequesting: Bool = false
     
     var body: some View {
         let cornerRadius: CGFloat = 10
@@ -72,8 +77,9 @@ struct SignUpView: View {
             .padding(.bottom, 50)
             
             Button("Submit") {
-                self.submit()
-            }.disabled(email.isEmpty || passwordProtocol())
+               self.submit()
+            }
+                .disabled(email.isEmpty || passwordProtocol())
                 .padding(.horizontal, 50)
                 .padding(.vertical)
                 .font(.headline)
@@ -94,10 +100,36 @@ struct SignUpView: View {
             .padding(.horizontal, 10)
             .padding(.bottom, 100)
     }
+    
     private func submit() {
-        ///TO DO: add where the username and password are going to be stored and point to that
+    guard !self.isRequesting else {
+            return
+        }
+        self.isRequesting = true
         
+        API.instance.login(user: User(email: self.email,
+                                      password: self.password))
+            .sink(receiveCompletion: { (result) in
+                
+                self.isRequesting = false
+                if case .failure(let error) = result {
+                    print(error.localizedDescription)
+                }
+                
+            }, receiveValue: { (response) in
+                print(response)
+                
+                DispatchQueue.main.async {
+                    Navigate.shared.go(UIViewController {
+                        UIView(backgroundColor: .white) {
+                            Label("You are logged in")
+                        }
+                    }, style: .modal)
+                }
+            })
+            .canceled(by: &bag)
     }
+    
     private func passwordProtocol() -> Bool {
         var upper = false
         var lower = false
@@ -126,7 +158,9 @@ struct SignUpView: View {
         }
         return false
     }
+    
 }
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
