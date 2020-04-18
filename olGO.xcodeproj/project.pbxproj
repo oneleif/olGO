@@ -34,6 +34,9 @@
 		29C6117B237E3CB900F673EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6117A237E3CB900F673EE /* API.swift */; };
 		29C61188237E3E4700F673EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61186237E3E4700F673EE /* User.swift */; };
 		29C61189237E3E4700F673EE /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61187237E3E4700F673EE /* PostItem.swift */; };
+		D0BD9446244ABA2E00001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9445244ABA2E00001D61 /* Auth */; };
+		D0BD9448244ABA7000001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9447244ABA7000001D61 /* Auth */; };
+		D0BD944A244ABAA300001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9449244ABAA300001D61 /* Auth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		29C6117A237E3CB900F673EE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		29C61186237E3E4700F673EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29C61187237E3E4700F673EE /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		D0BD9445244ABA2E00001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
+		D0BD9447244ABA7000001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
+		D0BD9449244ABAA300001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,9 @@
 				2902428B2391CA240095653D /* LoginView.swift */,
 				2902428D2391CBAE0095653D /* LogoutView.swift */,
 				2902428F2391CC280095653D /* RegisterView.swift */,
+				D0BD9449244ABAA300001D61 /* Auth */,
+				D0BD9447244ABA7000001D61 /* Auth */,
+				D0BD9445244ABA2E00001D61 /* Auth */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -376,6 +385,9 @@
 			files = (
 				29C61157237E3BAB00F673EE /* LaunchScreen.storyboard in Resources */,
 				29C61154237E3BAB00F673EE /* Assets.xcassets in Resources */,
+				D0BD944A244ABAA300001D61 /* Auth in Resources */,
+				D0BD9446244ABA2E00001D61 /* Auth in Resources */,
+				D0BD9448244ABA7000001D61 /* Auth in Resources */,
 				29C61152237E3BA900F673EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

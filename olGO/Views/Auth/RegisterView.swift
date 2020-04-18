@@ -7,6 +7,7 @@ struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
+    @State private var showingAlert = false
     
     @State private var bag = CancelBag()
     @State private var isRequesting: Bool = false
@@ -75,17 +76,23 @@ struct SignUpView: View {
                 }
             }
             .padding(.bottom, 50)
-            
-            Button("Submit") {
-               self.submit()
-            }
-                .disabled(email.isEmpty || passwordProtocol())
-                .padding(.horizontal, 50)
-                .padding(.vertical)
-                .font(.headline)
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .clipShape( Capsule() )
+            Button(action: {if self.passwordProtocol() {
+                self.submit()
+            } else {
+                self.showingAlert = true
+                }},
+                   label: {
+                    Text("Sign Up")
+                }).alert(isPresented: $showingAlert, content: {
+                    Alert(title: Text("Error"), message: Text("Passwords do not meet the requirements"), dismissButton: .default(Text("Dismiss")))
+                })
+            .disabled(email.isEmpty)
+            .padding(.horizontal, 50)
+            .padding(.vertical)
+            .font(.headline)
+            .foregroundColor(.white)
+            .background(Color.blue)
+            .clipShape( Capsule() )
         }
         .frame(
             minWidth: 350,
@@ -102,7 +109,7 @@ struct SignUpView: View {
     }
     
     private func submit() {
-    guard !self.isRequesting else {
+        guard !self.isRequesting else {
             return
         }
         self.isRequesting = true
