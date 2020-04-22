@@ -63,11 +63,16 @@ struct SignUpView: View {
                     }
                     .padding(.bottom, 50)
                     
-                    Button("Submit") {
-                        
+                    Button(action: {if self.passwordProtocol() {
                         self.submit()
-                        
-                    }.disabled(email.isEmpty || passwordProtocol())
+                    } else {
+                        self.showingAlert = true
+                        }},
+                           label: {
+                            Text("Sign Up")
+                        }).alert(isPresented: $showingAlert, content: {
+                            Alert(title: Text("Error"), message: Text("Passwords do not meet the requirements"), dismissButton: .default(Text("Dismiss")))
+                        }).disabled(email.isEmpty)
                     .padding(.horizontal, 50)
                     .padding(.vertical)
                     .font(.headline)
