@@ -26,87 +26,67 @@ struct SignUpView: View {
                 Text("Sign Up for OneLeif!")
                     .font(.title)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
             }
             .padding(.top, 10)
             
             HStack {
-                Text("Email:       ")
-                    .padding(.leading, 10)
+                        Text("Email:       ")
+                        TextField(" \"John\" ", text: $email)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    HStack {
+                        Text("Password:")
+                        SecureField(" Check note below", text: $password)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    HStack {
+                        Text("Confirm:   ")
+                        SecureField(" Re-type Here", text: $confirmPassword)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+                    
+                    Text("Password must have at least 7 characters   ")
+                        .padding(.top, 50)
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("At least 1 uppercase")
+                            Text("At least 1 number")
+                        }
+                        .padding(.trailing, 20)
+                        VStack(alignment: .leading){
+                            Text("At least 1 special")
+                            Text("At least 1 lowercase")
+                        }
+                    }
+                    .padding(.bottom, 50)
+                    
+                    Button("Submit") {
+                        
+                        self.submit()
+                        
+                    }.disabled(email.isEmpty || passwordProtocol())
+                    .padding(.horizontal, 50)
+                    .padding(.vertical)
+                    .font(.headline)
                     .foregroundColor(.white)
-                TextField(" \"John\" ", text: $email)
-                    .background(Color.white)
+                    .background(Color.blue)
                     .clipShape( Capsule() )
-            }
-            .padding(.trailing, 10)
-            
-            HStack {
-                Text("Password:")
-                    .padding(.leading, 10)
-                    .foregroundColor(.white)
-                SecureField(" Check note below", text: $password)
-                    .background(Color.white)
-                    .clipShape( Capsule() )
-            }
-            .padding(.trailing, 10)
-            
-            HStack {
-                Text("Confirm:   ")
-                    .padding(.leading, 10)
-                    .foregroundColor(.white)
-                SecureField(" Re-type Here", text: $confirmPassword)
-                    .background(Color.white)
-                    .clipShape( Capsule() )
-            }
-            .padding(.trailing, 10)
-            .padding(.bottom, 20)
-            
-            Text("Password must have at least 7 characters   ")
-                .padding(.top, 50)
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("At least 1 uppercase")
-                    Text("At least 1 number")
                 }
-                .padding(.trailing, 20)
-                VStack(alignment: .leading){
-                    Text("At least 1 special")
-                    Text("At least 1 lowercase")
-                }
+                .frame(
+                    minWidth: 350,
+                    idealWidth: 400,
+                    maxWidth: 450,
+                    minHeight: 500,
+                    idealHeight: 600,
+                    maxHeight: 700,
+                    alignment: .center)
+                .cornerRadius(cornerRadius)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 100)
             }
-            .padding(.bottom, 50)
-            Button(action: {if self.passwordProtocol() {
-                self.submit()
-            } else {
-                self.showingAlert = true
-                }},
-                   label: {
-                    Text("Sign Up")
-                }).alert(isPresented: $showingAlert, content: {
-                    Alert(title: Text("Error"), message: Text("Passwords do not meet the requirements"), dismissButton: .default(Text("Dismiss")))
-                })
-            .disabled(email.isEmpty)
-            .padding(.horizontal, 50)
-            .padding(.vertical)
-            .font(.headline)
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .clipShape( Capsule() )
-        }
-        .frame(
-            minWidth: 350,
-            idealWidth: 400,
-            maxWidth: 450,
-            minHeight: 500,
-            idealHeight: 600,
-            maxHeight: 700,
-            alignment: .center)
-            .background( Color.init( white: 0.45))
-            .cornerRadius(cornerRadius)
-            .padding(.horizontal, 10)
-            .padding(.bottom, 100)
-    }
     
     private func submit() {
         guard !self.isRequesting else {
@@ -114,7 +94,7 @@ struct SignUpView: View {
         }
         self.isRequesting = true
         
-        API.instance.login(user: User(email: self.email,
+        API.instance.register(user: User(email: self.email,
                                       password: self.password))
             .sink(receiveCompletion: { (result) in
                 
