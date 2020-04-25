@@ -8,11 +8,10 @@
 
 import UIKit
 import SwiftUIKit
+import SwiftUI
 import Combine
 
 class BaseController: UIViewController {
-    private var username: String = ""
-    private var password: String = ""
     private var bag = CancelBag()
     
     override func viewDidLoad() {
@@ -28,16 +27,16 @@ class BaseController: UIViewController {
                     [
                         Label("Auth Calls"),
                         NavButton("Register",
-                                  destination: UIViewController { View(backgroundColor: .white) { RegisterView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { UIHostingController(rootView: SignUpView()).view } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         NavButton("Login",
-                                  destination: UIViewController { View(backgroundColor: .white) { LoginView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { LoginView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
                         NavButton("Logout",
-                                  destination: UIViewController { View(backgroundColor: .white) { LogoutView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { LogoutView() } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         
@@ -69,7 +68,7 @@ class BaseController: UIViewController {
                 }) { posts in
                     DispatchQueue.main.async {
                         Navigate.shared.go(ViewController {
-                            View {
+                            UIView(backgroundColor: .white) {
                                 SafeAreaView {
                                     AllPostView(posts: posts)
                                 }
@@ -86,7 +85,7 @@ class BaseController: UIViewController {
         Button("Add Post", titleColor: .blue, forEvent: .touchUpInside) {
             
             Navigate.shared.go(ViewController {
-                View {
+                UIView(backgroundColor: .white) {
                     SafeAreaView {
                         AddPostView()
                     }
@@ -104,7 +103,7 @@ class BaseController: UIViewController {
             }) { social in
                 DispatchQueue.main.async {
                     Navigate.shared.go(ViewController {
-                        View {
+                        UIView(backgroundColor: .white) {
                             SafeAreaView {
                                 SocialView(social: social)
                             }
@@ -121,7 +120,7 @@ class BaseController: UIViewController {
         if case .failure(let error) = completion {
             print(error.localizedDescription)
             Navigate.shared.toast(style: .error, secondsToPersist: 3) {
-                Label(error.localizedDescription)
+                Label(error.localizedDescription).number(ofLines: 3)
             }
         } else {
             Navigate.shared.toast(style: .success, secondsToPersist: 1) {

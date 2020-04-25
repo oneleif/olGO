@@ -13,7 +13,7 @@ import Combine
 class LoginView: UIView {
     private var bag = CancelBag()
     
-    private var username: String = ""
+    private var email: String = ""
     private var password: String = ""
     
     private var isRequesting: Bool = false
@@ -27,9 +27,9 @@ class LoginView: UIView {
                     Spacer(),
                     VStack {
                         [
-                            Field(value: "", placeholder: "Username", keyboardType: .default)
+                            Field(value: "", placeholder: "Email", keyboardType: .emailAddress)
                                 .inputHandler { (value) in
-                                    self.username = value
+                                    self.email = value
                             }
                             .frame(height: 60),
                             Field(value: "", placeholder: "Password", keyboardType: .default)
@@ -61,8 +61,9 @@ class LoginView: UIView {
             return
         }
         self.isRequesting = true
-        API.instance.login(user: User(username: self.username,
-                                                      password: self.password))
+        
+        API.instance.login(user: User(email: self.email,
+                                      password: self.password))
             .sink(receiveCompletion: { (result) in
                 
                 self.isRequesting = false
@@ -70,24 +71,17 @@ class LoginView: UIView {
                     print(error.localizedDescription)
                 }
                 
-            }) { (data, response) in
+            }, receiveValue: { (response) in
+                print(response)
                 
-                guard let response = response as? HTTPURLResponse else {
-                    return
+                DispatchQueue.main.async {
+                    Navigate.shared.go(UIViewController {
+                        UIView(backgroundColor: .white) {
+                            Label("You are logged in")
+                        }
+                    }, style: .modal)
                 }
-                
-                print("Login Response Status Code: \(response.statusCode)")
-                
-                if 200 ... 300 ~= response.statusCode {
-                    DispatchQueue.main.async {
-                        Navigate.shared.go(UIViewController {
-                                            View(backgroundColor: .white) {
-                                                Label("You are logged in")
-                                            }
-                        }, style: .modal)
-                    }
-                }
-        }
-        .canceled(by: &self.bag)
+            })
+            .canceled(by: &bag)
     }
 }

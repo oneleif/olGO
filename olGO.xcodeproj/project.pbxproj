@@ -17,6 +17,12 @@
 		2902429E239482980095653D /* PostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902429D239482980095653D /* PostItemView.swift */; };
 		290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */; };
 		290B6667239609D400230D65 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290B6666239609D400230D65 /* PostDetailView.swift */; };
+		292D06AE2442693400644D2A /* JSONDecoder+olGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */; };
+		295D6191243A365E00106910 /* PublicUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618D243A365E00106910 /* PublicUserResponse.swift */; };
+		295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618E243A365E00106910 /* AccessTokenResponse.swift */; };
+		295D6193243A365E00106910 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D618F243A365E00106910 /* LoginResponse.swift */; };
+		295D6194243A365E00106910 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295D6190243A365E00106910 /* ErrorResponse.swift */; };
+		2975BD4524452850005FB4BB /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2975BD4424452850005FB4BB /* SwiftUIKit */; };
 		29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114A237E3BA900F673EE /* AppDelegate.swift */; };
 		29C6114D237E3BA900F673EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114C237E3BA900F673EE /* SceneDelegate.swift */; };
 		29C6114F237E3BA900F673EE /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6114E237E3BA900F673EE /* BaseController.swift */; };
@@ -26,9 +32,11 @@
 		29C61162237E3BAB00F673EE /* olGOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61161237E3BAB00F673EE /* olGOTests.swift */; };
 		29C6116D237E3BAB00F673EE /* olGOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6116C237E3BAB00F673EE /* olGOUITests.swift */; };
 		29C6117B237E3CB900F673EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C6117A237E3CB900F673EE /* API.swift */; };
-		29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29C6117D237E3CE400F673EE /* SwiftUIKit */; };
 		29C61188237E3E4700F673EE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61186237E3E4700F673EE /* User.swift */; };
 		29C61189237E3E4700F673EE /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C61187237E3E4700F673EE /* PostItem.swift */; };
+		D0BD9446244ABA2E00001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9445244ABA2E00001D61 /* Auth */; };
+		D0BD9448244ABA7000001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9447244ABA7000001D61 /* Auth */; };
+		D0BD944A244ABAA300001D61 /* Auth in Resources */ = {isa = PBXBuildFile; fileRef = D0BD9449244ABAA300001D61 /* Auth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,11 @@
 		2902429D239482980095653D /* PostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemView.swift; sourceTree = "<group>"; };
 		290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyCancellable+olGO.swift"; sourceTree = "<group>"; };
 		290B6666239609D400230D65 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+olGO.swift"; sourceTree = "<group>"; };
+		295D618D243A365E00106910 /* PublicUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicUserResponse.swift; sourceTree = "<group>"; };
+		295D618E243A365E00106910 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
+		295D618F243A365E00106910 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		295D6190243A365E00106910 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		29C61147237E3BA900F673EE /* olGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = olGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C6114A237E3BA900F673EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C6114C237E3BA900F673EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +89,9 @@
 		29C6117A237E3CB900F673EE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		29C61186237E3E4700F673EE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29C61187237E3E4700F673EE /* PostItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		D0BD9445244ABA2E00001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
+		D0BD9447244ABA7000001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
+		D0BD9449244ABAA300001D61 /* Auth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Auth; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29C6117E237E3CE400F673EE /* SwiftUIKit in Frameworks */,
+				2975BD4524452850005FB4BB /* SwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +136,9 @@
 				2902428B2391CA240095653D /* LoginView.swift */,
 				2902428D2391CBAE0095653D /* LogoutView.swift */,
 				2902428F2391CC280095653D /* RegisterView.swift */,
+				D0BD9449244ABAA300001D61 /* Auth */,
+				D0BD9447244ABA7000001D61 /* Auth */,
+				D0BD9445244ABA2E00001D61 /* Auth */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -147,6 +166,7 @@
 		2902429F2394E28E0095653D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				295D618C243A365E00106910 /* Responses */,
 				29C6117A237E3CB900F673EE /* API.swift */,
 			);
 			path = API;
@@ -156,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				290242A12394E2BB0095653D /* AnyCancellable+olGO.swift */,
+				292D06AD2442693400644D2A /* JSONDecoder+olGO.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +196,17 @@
 				29C6114E237E3BA900F673EE /* BaseController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		295D618C243A365E00106910 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				295D618D243A365E00106910 /* PublicUserResponse.swift */,
+				295D618E243A365E00106910 /* AccessTokenResponse.swift */,
+				295D618F243A365E00106910 /* LoginResponse.swift */,
+				295D6190243A365E00106910 /* ErrorResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		29C6113E237E3BA900F673EE = {
@@ -258,7 +290,7 @@
 			);
 			name = olGO;
 			packageProductDependencies = (
-				29C6117D237E3CE400F673EE /* SwiftUIKit */,
+				2975BD4424452850005FB4BB /* SwiftUIKit */,
 			);
 			productName = olGO;
 			productReference = 29C61147237E3BA900F673EE /* olGO.app */;
@@ -333,7 +365,7 @@
 			);
 			mainGroup = 29C6113E237E3BA900F673EE;
 			packageReferences = (
-				29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+				2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
 			);
 			productRefGroup = 29C61148237E3BA900F673EE /* Products */;
 			projectDirPath = "";
@@ -353,6 +385,9 @@
 			files = (
 				29C61157237E3BAB00F673EE /* LaunchScreen.storyboard in Resources */,
 				29C61154237E3BAB00F673EE /* Assets.xcassets in Resources */,
+				D0BD944A244ABAA300001D61 /* Auth in Resources */,
+				D0BD9446244ABA2E00001D61 /* Auth in Resources */,
+				D0BD9448244ABA7000001D61 /* Auth in Resources */,
 				29C61152237E3BA900F673EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,15 +416,20 @@
 				290242902391CC280095653D /* RegisterView.swift in Sources */,
 				2902428E2391CBAE0095653D /* LogoutView.swift in Sources */,
 				29C61189237E3E4700F673EE /* PostItem.swift in Sources */,
+				295D6191243A365E00106910 /* PublicUserResponse.swift in Sources */,
 				290B6667239609D400230D65 /* PostDetailView.swift in Sources */,
 				2902428C2391CA240095653D /* LoginView.swift in Sources */,
+				295D6193243A365E00106910 /* LoginResponse.swift in Sources */,
 				290242932392D4440095653D /* AllPostView.swift in Sources */,
 				2902429B2392E3760095653D /* UpdateSocialView.swift in Sources */,
+				292D06AE2442693400644D2A /* JSONDecoder+olGO.swift in Sources */,
 				290242992392E36C0095653D /* SocialView.swift in Sources */,
 				2902429E239482980095653D /* PostItemView.swift in Sources */,
 				290242A22394E2BB0095653D /* AnyCancellable+olGO.swift in Sources */,
 				290242962392D6AA0095653D /* AddPostView.swift in Sources */,
+				295D6192243A365E00106910 /* AccessTokenResponse.swift in Sources */,
 				29C6114F237E3BA900F673EE /* BaseController.swift in Sources */,
+				295D6194243A365E00106910 /* ErrorResponse.swift in Sources */,
 				29C6114B237E3BA900F673EE /* AppDelegate.swift in Sources */,
 				29C6117B237E3CB900F673EE /* API.swift in Sources */,
 				29C61188237E3E4700F673EE /* User.swift in Sources */,
@@ -724,9 +764,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+		2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zmeriksen/SwiftUIKit.git";
+			repositoryURL = "https://github.com/oneleif/SwiftUIKit";
 			requirement = {
 				branch = develop;
 				kind = branch;
@@ -735,9 +775,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		29C6117D237E3CE400F673EE /* SwiftUIKit */ = {
+		2975BD4424452850005FB4BB /* SwiftUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 29C6117C237E3CE400F673EE /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			package = 2975BD4324452850005FB4BB /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
 			productName = SwiftUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */

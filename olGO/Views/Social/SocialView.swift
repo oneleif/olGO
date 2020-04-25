@@ -24,7 +24,7 @@ class SocialView: UIView {
                     VStack(withSpacing: 8) {
                         [
                             profileImageURL.map { url in
-                                Image(url)
+                                LoadingImage(url)
                                     .contentMode(.scaleAspectFit)
                                     .frame(height: 168)
                                     .configure { $0.isHidden = !UIApplication.shared.canOpenURL(url) }
@@ -59,7 +59,7 @@ class SocialView: UIView {
             .navigateSetRight(barButton: UIBarButtonItem(customView:
                 NavButton("Edit",
                           destination: UIViewController {
-                            View {
+                            UIView(backgroundColor: .white) {
                                 UpdateSocialView(social: social)
                             }
                     },
