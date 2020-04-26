@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUIKit
+import SwiftUI
 import Combine
 
 class BaseController: UIViewController {
@@ -26,7 +27,7 @@ class BaseController: UIViewController {
                     [
                         Label("Auth Calls"),
                         NavButton("Register",
-                                  destination: UIViewController { UIView(backgroundColor: .white) { RegisterView() } },
+                                  destination: UIViewController { UIView(backgroundColor: .white) { UIHostingController(rootView: SignUpView()).view } },
                                   style: .push)
                             .configure { $0.setTitleColor(.blue, for: .normal) },
                         NavButton("Login",
