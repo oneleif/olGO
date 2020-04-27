@@ -9,7 +9,7 @@
 import Foundation
 
 struct SocialInformation: Codable {
-    var id: Int
+    var id: Int?
     var username: String = ""
     var firstName: String = ""
     var lastName: String = ""
@@ -23,17 +23,17 @@ struct SocialInformation: Codable {
     var location: String = ""
 }
 
-struct User: Codable {
+class User: Codable {
     var id: Int?
     // Auth Information
-    var username: String
+    var email: String
     var password: String
     // Social Information
     var social: SocialInformation?
     
-    init(id: Int? = nil, username: String, password: String) {
+    init(id: Int? = nil, email: String, password: String) {
         self.id = id
-        self.username = username
+        self.email = email
         self.password = password
     }
 }

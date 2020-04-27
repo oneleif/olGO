@@ -14,7 +14,6 @@ struct LoginView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var showingAlert = false
-    
     @State private var bag = CancelBag()
     @State private var isRequesting: Bool = false
     
@@ -77,6 +76,7 @@ struct LoginView: View {
             return
         }
         self.isRequesting = true
+      
         API.instance.login(user: User(username: self.email,
                                                       password: self.password))
             .sink(receiveCompletion: { (result) in
@@ -86,10 +86,15 @@ struct LoginView: View {
                     print(error.localizedDescription)
                 }
                 
-            }) { (data, response) in
+            }, receiveValue: { (response) in
+                print(response)
                 
-                guard let response = response as? HTTPURLResponse else {
-                    return
+                DispatchQueue.main.async {
+                    Navigate.shared.go(UIViewController {
+                        UIView(backgroundColor: .white) {
+                            Label("You are logged in")
+                        }
+                    }, style: .modal)
                 }
                 
                 print("Login Response Status Code: \(response.statusCode)")
