@@ -6,62 +6,78 @@
 //  Copyright © 2019 oneleif. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import SwiftUIKit
 import Combine
 
-class LoginView: UIView {
-    private var bag = CancelBag()
+struct LoginView: View {
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var showingAlert = false
     
-    private var username: String = ""
-    private var password: String = ""
+    @State private var bag = CancelBag()
+    @State private var isRequesting: Bool = false
     
-    private var isRequesting: Bool = false
-    
-    init() {
-        super.init(frame: .zero)
-        backgroundColor = .white
-        embed {
-            VStack(distribution: .equalCentering) {
-                [
-                    Spacer(),
-                    VStack {
-                        [
-                            Field(value: "", placeholder: "Username", keyboardType: .default)
-                                .inputHandler { (value) in
-                                    self.username = value
-                            }
-                            .frame(height: 60),
-                            Field(value: "", placeholder: "Password", keyboardType: .default)
-                                .configure {
-                                    $0.isSecureTextEntry = true
-                            }
-                            .inputHandler { (value) in
-                                self.password = value
-                            }
-                            .frame(height: 60)
-                        ]
-                    },
-                    Button("Login", titleColor: .blue) {
-                        self.login()
-                    }
-                    .frame(height: 60),
-                    Spacer()
-                ]
-            }.padding()
+    var body: some View {
+        let cornerRadius: CGFloat = 10
+        
+        return VStack {
+            HStack {
+                Image("oneleifgoodlogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .cornerRadius(cornerRadius)
+                Text("Sign Up for OneLeif!")
+                    .font(.title)
+                    .fontWeight(.bold)
+            }
+            .padding(.top, 10)
+            
+            HStack {
+                Text("Email:       ")
+                TextField(" \"John@gmail.com\" ", text: $email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            
+            HStack {
+                Text("Password:")
+                SecureField("Abc123", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            
+            Button(action: { self.login() }, label: { Text("Login")})
+                .alert(isPresented: $showingAlert, content: {
+                    Alert( title: Text("Error"),
+                           message: Text("Password or Email incorrect"),
+                           dismissButton: .default(Text("Dismiss")))})
+                .font(.headline)
+                .padding(.vertical, 10)
+                .padding(.horizontal)
+                .foregroundColor(.white)
+                .background(Color.blue)
+            .clipShape( Capsule() )
         }
+        .frame(
+            minWidth: 350,
+            idealWidth: 400,
+            maxWidth: 450,
+            minHeight: 500,
+            idealHeight: 600,
+            maxHeight: 700,
+            alignment: .center)
+            .cornerRadius(cornerRadius)
+            .padding(.horizontal, 10)
+            .padding(.bottom, 100)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     private func login() {
         guard !self.isRequesting else {
             return
         }
         self.isRequesting = true
-        API.instance.login(user: User(username: self.username,
+        API.instance.login(user: User(username: self.email,
                                                       password: self.password))
             .sink(receiveCompletion: { (result) in
                 
@@ -81,7 +97,7 @@ class LoginView: UIView {
                 if 200 ... 300 ~= response.statusCode {
                     DispatchQueue.main.async {
                         Navigate.shared.go(UIViewController {
-                                            View(backgroundColor: .white) {
+                                            UIView(backgroundColor: .white) {
                                                 Label("You are logged in")
                                             }
                         }, style: .modal)
